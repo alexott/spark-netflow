@@ -2,17 +2,17 @@ name := "spark-netflow"
 
 organization := "com.github.sadikovi"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.12"
 
-crossScalaVersions := Seq("2.10.5", "2.11.7")
+crossScalaVersions := Seq("2.11.12")
 
 spName := "sadikovi/spark-netflow"
 
-val defaultSparkVersion = "2.0.1"
+val defaultSparkVersion = "2.4.7"
 
 sparkVersion := sys.props.getOrElse("spark.testVersion", defaultSparkVersion)
 
-val defaultHadoopVersion = "2.6.0"
+val defaultHadoopVersion = "2.6.5"
 
 val hadoopVersion = settingKey[String]("The version of Hadoop to test against.")
 
@@ -28,7 +28,7 @@ sparkComponents := Seq("sql")
 
 libraryDependencies ++= Seq(
   // Spark build requires this transient dependency
-  "io.netty" % "netty" % "3.6.2.Final" % "provided",
+  // "io.netty" % "netty" % "4.6.2.Final" % "provided",
   "org.scalatest" %% "scalatest" % "2.2.4" % "test",
   "com.novocode" % "junit-interface" % "0.11" % "test"
 )
@@ -51,11 +51,6 @@ parallelExecution in Test := false
 
 // Skip tests during assembly
 test in assembly := {}
-
-ScoverageSbtPlugin.ScoverageKeys.coverageHighlighting := {
-  if (scalaBinaryVersion.value == "2.10") false
-  else true
-}
 
 ScoverageSbtPlugin.ScoverageKeys.coverageMinimum := 80
 ScoverageSbtPlugin.ScoverageKeys.coverageFailOnMinimum := true
