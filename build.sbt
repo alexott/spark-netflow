@@ -2,17 +2,17 @@ name := "spark-netflow"
 
 organization := "com.github.sadikovi"
 
-scalaVersion := "2.11.12"
+scalaVersion := "2.12.10"
 
-crossScalaVersions := Seq("2.11.12")
+crossScalaVersions := Seq("2.12.10")
 
 spName := "sadikovi/spark-netflow"
 
-val defaultSparkVersion = "2.4.7"
+val defaultSparkVersion = "3.0.1"
 
 sparkVersion := sys.props.getOrElse("spark.testVersion", defaultSparkVersion)
 
-val defaultHadoopVersion = "2.6.5"
+val defaultHadoopVersion = "2.7.4"
 
 val hadoopVersion = settingKey[String]("The version of Hadoop to test against.")
 
@@ -29,7 +29,7 @@ sparkComponents := Seq("sql")
 libraryDependencies ++= Seq(
   // Spark build requires this transient dependency
   // "io.netty" % "netty" % "4.6.2.Final" % "provided",
-  "org.scalatest" %% "scalatest" % "2.2.4" % "test",
+  "org.scalatest" %% "scalatest" % "3.2.3" % "test",
   "com.novocode" % "junit-interface" % "0.11" % "test"
 )
 

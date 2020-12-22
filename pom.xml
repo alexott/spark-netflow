@@ -3,8 +3,8 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.github.sadikovi</groupId>
-  <artifactId>spark-netflow_2.11</artifactId>
-  <version>2.4.0</version>
+  <artifactId>spark-netflow_2.12</artifactId>
+  <version>3.0.0</version>
   <packaging>jar</packaging>
 
   <name>spark-netflow</name>
@@ -12,10 +12,12 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <scala.version>2.11.12</scala.version>
-    <spark.version>2.4.7</spark.version>
-    <spark.scala.version>2.11</spark.scala.version>
+    <scala.version>2.12.10</scala.version>
+    <spark.version>3.0.1</spark.version>
+    <spark.scala.version>2.12</spark.scala.version>
     <java.version>1.8</java.version>
+    <slf4j.version>1.7.30</slf4j.version>
+    <log4j.version>1.2.17</log4j.version>
   </properties>
 
   <repositories>
@@ -33,11 +35,32 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>${slf4j.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>${log4j.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    
+    <dependency>
       <groupId>org.scalatest</groupId>
       <artifactId>scalatest_${spark.scala.version}</artifactId>
-      <version>2.2.4</version>
+      <version>3.2.3</version>
       <scope>test</scope>
     </dependency>
+    
     <dependency>
       <groupId>com.novocode</groupId>
       <artifactId>junit-interface</artifactId>

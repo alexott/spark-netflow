@@ -20,3 +20,6 @@ metastore_db/
 spark-warehouse/
 
 temp/
+/*.iml
+/.sbtopts
+/.idea/

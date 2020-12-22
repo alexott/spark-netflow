@@ -17,10 +17,10 @@
 package com.github.sadikovi.testutil
 
 import java.io.File
-
 import org.apache.hadoop.fs.{Path => HadoopPath}
-
-import org.scalatest._
+import org.scalatest.{BeforeAndAfter, BeforeAndAfterAll, Inside, Inspectors, OptionValues}
+import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.matchers.should.Matchers
 
 package object implicits {
   implicit class PathStringBuilder(path: String) {
@@ -35,5 +35,5 @@ package object implicits {
 }
 
 /** abstract general testing class */
-abstract class UnitTestSuite extends FunSuite with Matchers with OptionValues with Inside
+abstract class UnitTestSuite extends AnyFunSuite with Matchers with OptionValues with Inside
   with Inspectors with TestBase with BeforeAndAfterAll with BeforeAndAfter
